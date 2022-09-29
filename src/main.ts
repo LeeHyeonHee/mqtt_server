@@ -1,9 +1,11 @@
+import { AppGateway } from './app.gateway';
 import { NestFactory } from '@nestjs/core';
-import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { AppModule } from './app.module';
+import { MicroserviceOptions, Transport } from '@nestjs/microServices';
+import { SocketIOAdapter } from './util/SocketIOAdapter';
+import { WsAdapter } from './util/gateway';
 
 async function bootstrap() {
-  // const app = await NestFactory.create(AppModule);
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {
@@ -13,6 +15,14 @@ async function bootstrap() {
       },
     },
   );
-  await app.listen();
+  app.listen();
+
+  const app2 = await NestFactory.create(AppModule);
+  app2.useWebSocketAdapter(new WsAdapter(app2));
+  // app2.listen(8080);
+  // const app3 = await NestFactory.create(AppGateway);
+
+  // app3.listen(3000);
+  // app3.listen();
 }
 bootstrap();
