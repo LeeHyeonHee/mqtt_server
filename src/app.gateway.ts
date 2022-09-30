@@ -13,6 +13,7 @@ import { MqttDataType } from './model/base';
 
 @WebSocketGateway(11110, {
   transports: ['websocket'],
+  cors: true,
 })
 @Injectable()
 export class AppGateway

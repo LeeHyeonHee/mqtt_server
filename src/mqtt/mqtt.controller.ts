@@ -45,6 +45,14 @@ export class MqttController {
     return data;
   }
 
+  @MessagePattern('notification_channel5')
+  getDevice5(@Payload() data: MqttDataType) {
+    console.log('수신중');
+    console.log(data);
+    this.gateway.sendMessage(data);
+    return data;
+  }
+
   @MessagePattern('notification_channel6')
   getDevice6(@Payload() data: MqttDataType) {
     console.log('수신중');
