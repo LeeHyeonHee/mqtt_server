@@ -2,7 +2,6 @@ import { AppGateway } from './app.gateway';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microServices';
-import { SocketIOAdapter } from './util/SocketIOAdapter';
 import { WsAdapter } from './util/gateway';
 
 async function bootstrap() {

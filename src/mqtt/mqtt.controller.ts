@@ -338,11 +338,4 @@ export class MqttController {
     this.gateway.sendMessage(data);
     return data;
   }
-
-//   @MessagePattern('dmddo')
-//   getDmddo(@Payload() data) {
-//     console.log('aa');
-//     this.gateway.sendMessage(data);
-//     return data;
-//   }
 }
