@@ -1,4 +1,3 @@
-import { AppGateway } from './app.gateway';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microServices';
